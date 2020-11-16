@@ -1,4 +1,4 @@
-# Web application in Data Visualisation
+# Web application for Data Visualization
 
 ## Install the project
 
@@ -15,7 +15,7 @@ pip install Flask
 pip install flask-cors
 ```
 
-### Start servers 
+### Start servers
 
 ```
 python ./api/views.py
