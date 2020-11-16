@@ -12,3 +12,6 @@ def main():
     #name = request.args.get("name", "World")
     r = tools.main()
     return r
+
+if __name__ == '__main__':
+	app.run()
