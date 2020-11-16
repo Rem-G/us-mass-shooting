@@ -1,4 +1,4 @@
-# Web application in Data Visualisation
+# Web application for Data Visualisation
 
 ## Install the project
 
