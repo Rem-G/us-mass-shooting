@@ -11,5 +11,4 @@ tools = Tools()
 def main():
     #name = request.args.get("name", "World")
     r = tools.main()
-    print(r[0])
     return r
