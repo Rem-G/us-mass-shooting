@@ -83,7 +83,7 @@ function display(){
 	    .style("visibility", "hidden");
 		
 
-	const legendText = ["< 20 shootings", "> 20 shootings", "> 50 shootings", "shootings"];
+	const legendText = ["< 20 victims", "> 20 victims", "> 50 victims", "shootings"];
 
 	let legend = d3.select("#d3_map").append("svg")
       			.attr("class", "legend")
@@ -141,7 +141,7 @@ function display(){
 			;
 
 			//Shots dots
-			svg.selectAll('path')
+			svg.selectAll('circle')
 			.data(shots)
 			.enter()
 			.append('circle')
