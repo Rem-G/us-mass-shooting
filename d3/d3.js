@@ -6,6 +6,20 @@
 // 	return arr;
 // }
 
+function get_state_stats(state, shots){
+	let fatalities = 0;
+	let injured = 0;
+	shots.forEach(shot => {
+		current_state = shot.location.split(', ')[1];
+		if (current_state === state){
+			fatalities += shot.fatalities;
+			injured += shot.injured;
+		}
+	});
+
+	return {'fatalities': fatalities, 'injured': injured};
+}
+
 function get_state_shots(state, shots){
 	let shots_nb = null;
 
@@ -21,10 +35,10 @@ function get_state_shots(state, shots){
 	return shots_nb;
 }
 
-function get_state_color(state, shots){
-	let color = d3.scaleLinear().range(["rgb(50,190,240)","rgb(50,145,240)","rgb(50,100,240)","rgb(190,47,47)"]);
-	color.domain([0,1,2,3]);
+let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
+color.domain([0, 1, 2, 3]);
 
+function get_state_color(state, shots){
 	let nb_shots = get_state_shots(state, shots);
 
 	if(!nb_shots){return 'rgb(213,222,217)';}
@@ -63,15 +77,40 @@ function display(){
 	// Append Div for tooltip to SVG
 	var tooltip = d3.select("#d3_map")
 	    .append("div")
-	    .attr("id", "mytooltip")
+	    .attr("id", "tooltip")
 	    .style("position", "absolute")
 	    .style("z-index", "10")
-	    .style("visibility", "hidden")
-	    .text("a simple tooltip");
+	    .style("visibility", "hidden");
+		
+
+	const legendText = ["< 20 shootings", "> 20 shootings", "> 50 shootings", "shootings"];
+
+	let legend = d3.select("#d3_map").append("svg")
+      			.attr("class", "legend")
+     			.attr("width", 140)
+    			.attr("height", 200)
+   				.selectAll("g")
+   					.data(color.domain().slice().reverse())
+   				.enter()
+   				.append("g")
+     			.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  	legend.append("rect")
+		.attr("width", 18)
+		.attr("height", 18)
+		.style("fill", color)
+
+	legend.append("text")
+		.style("font-color", "black")
+		.attr("x", 24)
+		.attr("y", 9)
+		.attr("dy", ".35em")
+		.text(function(d){return legendText[d];});
 
 
-	d3.json("../data/us-states.json", function(us_states) {
-		d3.json('../data/us_shots.json', function(shots){
+	d3.json('../data/us_shots.json', function(shots){
+		d3.json("../data/us-states.json", function(us_states) {
+
 	    //Bind data and create one path per GeoJSON feature
 	    svg.selectAll("path")
 	       .data(us_states.features)
@@ -82,23 +121,24 @@ function display(){
 	       .attr('fill-opacity', '100%')
 	       .attr("width", width)
 		   .attr("height", height)
+		   .attr("state", function(state){return state.properties.name;})
 		   .style("stroke", "#fff")
 		   .style("stroke-width", "1")
 
-	   		.on('mouseover', function(d, i) {
-				d3.select(this).transition()
-				.duration('50')
-				.attr('fill-opacity', '70%')
-
-				d3.select("#mytooltip")
-				.style("opacity", 0);
-			})
-
-	   		.on('mouseout', function(d, i) {
-				d3.select(this).transition()
-				.duration('50')
-				.attr('fill-opacity', '100%')
-			});
+		//    .on('mouseover', function(d) {
+		// 	   console.log(d);
+		//    d3.select("#tooltip")
+		// 	   .style("visibility", "visible")//set style to it
+		// 	   .html(function(){
+		// 		   const stats = get_state_stats(d.location.split(', ')[1], shots);
+		// 		   console.log(stats);
+		// 		   return "<h3>"+d.location.split(', ')[1]+"</h3>"
+		// 				   +"<p>"+stats.fatalities+" have been killed, "+stats.injured+" injured.</p>";
+		// 	   })
+		// 	   .style("left", (d3.event.pageX) + "px")
+		// 	   .style("top", (d3.event.pageY) + "px")
+		// 	})
+			;
 
 			//Shots dots
 			svg.selectAll('path')
@@ -116,19 +156,26 @@ function display(){
 				.duration('50')
 				.attr('fill-opacity', '100%')
 	
-				d3.select("#mytooltip")
-				.style("visibility", "visible")//set style to it
-				.html("<h1>"+d.case+"</h1>")
-				.style("left", (d3.event.pageX) + "px")
-				.style("top", (d3.event.pageY) + "px")
-				.style("opacity", 100)
+				d3.select("#tooltip")
+					.style("visibility", "visible")//set style to it
+					.html(
+						"<h3>"+d.case+"</h3>"
+						+"<h4>"+d.date+", "+d.location+"</h4>"
+						+"<p>"+d.summary+"</p>"
+						+"<p>"+d.fatalities+" people have been killed, "+d.injured+" injured.</p>"
+					)
+					.style("left", (d3.event.pageX) + "px")
+					.style("top", (d3.event.pageY) + "px")
 			})
 	
 			.on('mouseout', function(d, i) {
+				d3.select("#tooltip")
+					.style("visibility", "hidden");
+
 				d3.select(this).transition()
-				.duration('50')
-				.attr('fill-opacity', '70%')
+					.duration('50')
+					.attr('fill-opacity', '70%');
 			});
-		})
+		});
 	});
 }
