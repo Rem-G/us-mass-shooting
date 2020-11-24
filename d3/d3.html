@@ -2,14 +2,23 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-
-		<link rel="stylesheet" href="d3.css">
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-		<script type="text/javascript" src='d3.js'/>
-		<script src="https://d3js.org/topojson.v1.min.js"></script>
-
+		<link rel="stylesheet" href="map.css">
 	</head>
-	<body onload="display()">
-		<div id="d3_map"/>
+	<body>
+		<div id="d3_map"></div>
+		<div id="evolution_year"></div>
 	</body>
+
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script type="text/javascript" src='evolution_year_chart.js'></script>
+	<script type="text/javascript" src='map.js'></script>
+	<script src="https://d3js.org/topojson.v1.min.js"></script>
+
+	<script>
+		window.onload=function(){
+			display_map();
+			display_chart();
+		}
+	</script>
+
 </html>

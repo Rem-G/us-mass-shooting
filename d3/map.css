@@ -18,13 +18,25 @@ div.tooltip {
 }
         
 /* Legend Font Style */
-body {
+#d3_map {
 	font: 11px sans-serif;
 }
         
 /* Legend Position Style */
 .legend {
 	position:absolute;
-	left:800px;
-	top:350px;
+}
+
+#tooltip {	
+	width:300px;
+    word-wrap: break-word;
+    position: absolute;			
+    text-align: center;				
+    padding: 2px;				
+    font: 14px sans-serif;		
+    background: rgba(226, 226, 226, 0.95);	
+    border: 0px;		
+    border-radius: 8px;			
+	pointer-events: none;
+	opacity: 70%;
 }
