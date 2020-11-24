@@ -27,8 +27,6 @@ function fillTable(){
         for (let i = 1; i<data.length; i++){
             // row
             trNode = document.createElement("tr");
-            trNode.role="row";
-            trNode.className="odd";
 
             // elements in the row
             tdNode = document.createElement("td");

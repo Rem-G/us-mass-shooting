@@ -12,7 +12,6 @@
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="js/functions.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script>$(function(){$("#dataTable").load("table.html");});</script>
     </head>
     <body class="sb-nav-fixed">
         <div class="container-fluid">
@@ -90,6 +89,969 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <!-- data -->
+                            <thead>
+                                <tr id="table-content-head">
+                                    <th>Place</th>
+                                    <th>Date</th>
+                                    <th>Fatalities</th>
+                                    <th>Injured</th>
+                                    <th>Age of Shooter</th>
+                                    <th>Weapons Obtained Legally</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr id="table-content-foot">
+                                    <th>Place</th>
+                                    <th>Date</th>
+                                    <th>Fatalities</th>
+                                    <th>Injured</th>
+                                    <th>Age of Shooter</th>
+                                    <th>Weapons Obtained Legally</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="table-content-body">
+                                <tr>
+                                    <td>Jersey City, New Jersey</td>
+                                    <td>12/10/19</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Pensacola, Florida</td>
+                                    <td>12/6/19</td>
+                                    <td>3</td>
+                                    <td>8</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Odessa, Texas</td>
+                                    <td>8/31/19</td>
+                                    <td>7</td>
+                                    <td>25</td>
+                                    <td>36</td>
+                                    <td>-</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Dayton, Ohio</td>
+                                    <td>8/4/19</td>
+                                    <td>9</td>
+                                    <td>27</td>
+                                    <td>24</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>El Paso, Texas</td>
+                                    <td>8/3/19</td>
+                                    <td>22</td>
+                                    <td>26</td>
+                                    <td>21</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Gilroy, California</td>
+                                    <td>7/28/19</td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td>19</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Virginia Beach, Virginia</td>
+                                    <td>5/31/19</td>
+                                    <td>12</td>
+                                    <td>4</td>
+                                    <td>40</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Aurora, Illinois</td>
+                                    <td>2/15/19</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>45</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>State College, Pennsylvania</td>
+                                    <td>1/24/19</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>21</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Sebring, Florida</td>
+                                    <td>1/23/19</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>21</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Chicago, Illinois</td>
+                                    <td>11/19/18</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>32</td>
+                                    <td>-</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Thousand Oaks, California</td>
+                                    <td>11/7/18</td>
+                                    <td>12</td>
+                                    <td>22</td>
+                                    <td>28</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Pittsburgh, Pennsylvania</td>
+                                    <td>10/27/18</td>
+                                    <td>11</td>
+                                    <td>6</td>
+                                    <td>46</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Perryman, Maryland</td>
+                                    <td>9/20/18</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>26</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Bakersfield, California</td>
+                                    <td>9/12/18</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>54</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Cincinnati, Ohio</td>
+                                    <td>9/6/18</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>29</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Annapolis, Maryland</td>
+                                    <td>6/28/18</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>38</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Santa Fe, Texas</td>
+                                    <td>5/18/18</td>
+                                    <td>10</td>
+                                    <td>13</td>
+                                    <td>17</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Nashville, Tennessee</td>
+                                    <td>4/22/18</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>29</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Yountville, California</td>
+                                    <td>3/9/18</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>36</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Parkland, Florida</td>
+                                    <td>2/14/18</td>
+                                    <td>17</td>
+                                    <td>17</td>
+                                    <td>19</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Melcroft, Pennsylvania</td>
+                                    <td>1/28/18</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>28</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Rancho Tehama, California</td>
+                                    <td>11/14/17</td>
+                                    <td>5</td>
+                                    <td>10</td>
+                                    <td>44</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Sutherland Springs, Texas</td>
+                                    <td>11/5/17</td>
+                                    <td>26</td>
+                                    <td>20</td>
+                                    <td>26</td>
+                                    <td>Kelley passed federal criminal background checks; the US Air Force failed to provide information on his criminal history to the FBI</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Thornton, Colorado</td>
+                                    <td>11/1/17</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>47</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Edgewood, Maryland</td>
+                                    <td>10/18/17</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>37</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Las Vegas, Nevada</td>
+                                    <td>10/1/17</td>
+                                    <td>58</td>
+                                    <td>546</td>
+                                    <td>64</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>San Francisco, California</td>
+                                    <td>6/14/17</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>38</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Tunkhannock, Pennsylvania</td>
+                                    <td>6/7/17</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>24</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Orlando, Florida</td>
+                                    <td>6/5/2017</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>45</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Kirkersville, Ohio</td>
+                                    <td>5/12/2017</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>43</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fresno, California</td>
+                                    <td>4/18/2017</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>39</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fort Lauderdale, Florida</td>
+                                    <td>1/6/2017</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>26</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Burlington, Washington</td>
+                                    <td>9/23/2016</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>20</td>
+                                    <td>TBD</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Baton Rouge, Lousiana</td>
+                                    <td>7/17/2016</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>29</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Dallas, Texas</td>
+                                    <td>7/7/2016</td>
+                                    <td>5</td>
+                                    <td>11</td>
+                                    <td>25</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Orlando, Florida</td>
+                                    <td>6/12/2016</td>
+                                    <td>49</td>
+                                    <td>53</td>
+                                    <td>29</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Hesston, Kansas</td>
+                                    <td>2/25/2016</td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                    <td>38</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Kalamazoo County, Michigan</td>
+                                    <td>2/20/2016</td>
+                                    <td>6</td>
+                                    <td>2</td>
+                                    <td>45</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>San Bernardino, California</td>
+                                    <td>12/2/2015</td>
+                                    <td>14</td>
+                                    <td>21</td>
+                                    <td>28</td>
+                                    <td>
+                                       Yes
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>Colorado Springs, Colorado</td>
+                                    <td>11/27/2015</td>
+                                    <td>3</td>
+                                    <td>9</td>
+                                    <td>57</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Colorado Springs, Colorado</td>
+                                    <td>10/31/2015</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>33</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Roseburg, Oregon</td>
+                                    <td>10/1/2015</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>26</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Chattanooga, Tennessee</td>
+                                    <td>7/16/2015</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>24</td>
+                                    <td>Yes ("some of the weapons were purchased legally and some of them may not have been")</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Charleston, South Carolina</td>
+                                    <td>6/17/2015</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                    <td>21</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Menasha, Wisconsin</td>
+                                    <td>6/11/2015</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>27</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Marysville, Washington</td>
+                                    <td>10/24/2014</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>15</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Santa Barbara, California</td>
+                                    <td>5/23/2014</td>
+                                    <td>6</td>
+                                    <td>13</td>
+                                    <td>22</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fort Hood, Texas</td>
+                                    <td>4/3/2014</td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td>34</td>
+                                    <td>
+                                       Yes
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>Alturas, California</td>
+                                    <td>2/20/2014</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>44</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Washington, D.C.</td>
+                                    <td>9/16/2013</td>
+                                    <td>12</td>
+                                    <td>8</td>
+                                    <td>34</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Hialeah, Florida</td>
+                                    <td>7/26/2013</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>42</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Santa Monica, California</td>
+                                    <td>6/7/2013</td>
+                                    <td>6</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>Yes </td>
+                                 </tr>
+                                 <tr>
+                                    <td>Federal Way, Washington</td>
+                                    <td>4/21/2013</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>27</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Herkimer County, New York</td>
+                                    <td>3/13/2013</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>64</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Newtown, Connecticut</td>
+                                    <td>12/14/2012</td>
+                                    <td>27</td>
+                                    <td>2</td>
+                                    <td>20</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Minneapolis, Minnesota</td>
+                                    <td>9/27/2012</td>
+                                    <td>7</td>
+                                    <td>1</td>
+                                    <td>36</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Oak Creek, Wisconsin</td>
+                                    <td>8/5/2012</td>
+                                    <td>7</td>
+                                    <td>3</td>
+                                    <td>40</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Aurora, Colorado</td>
+                                    <td>7/20/2012</td>
+                                    <td>12</td>
+                                    <td>70</td>
+                                    <td>24</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Seattle, Washington</td>
+                                    <td>5/20/2012</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>40</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Oakland, California</td>
+                                    <td>4/2/2012</td>
+                                    <td>7</td>
+                                    <td>3</td>
+                                    <td>43</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Norcross, Georgia</td>
+                                    <td>2/21/2012</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>59</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Seal Beach, California</td>
+                                    <td>10/12/2011</td>
+                                    <td>8</td>
+                                    <td>1</td>
+                                    <td>42</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Carson City, Nevada</td>
+                                    <td>9/6/2011</td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td>32</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Tucson, Arizona</td>
+                                    <td>1/8/2011</td>
+                                    <td>6</td>
+                                    <td>13</td>
+                                    <td>22</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Manchester, Connecticut</td>
+                                    <td>8/3/2010</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>34</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Parkland, Washington</td>
+                                    <td>11/29/2009</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>37</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fort Hood, Texas</td>
+                                    <td>11/5/2009</td>
+                                    <td>13</td>
+                                    <td>31</td>
+                                    <td>39</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Binghamton, New York</td>
+                                    <td>4/3/2009</td>
+                                    <td>14</td>
+                                    <td>4</td>
+                                    <td>41</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Carthage, North Carolina</td>
+                                    <td>3/29/2009</td>
+                                    <td>8</td>
+                                    <td>3</td>
+                                    <td>45</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Henderson, Kentucky</td>
+                                    <td>6/25/2008</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>25</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>DeKalb, Illinois</td>
+                                    <td>2/14/2008</td>
+                                    <td>5</td>
+                                    <td>21</td>
+                                    <td>27</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Kirkwood, Missouri</td>
+                                    <td>2/7/2008</td>
+                                    <td>6</td>
+                                    <td>2</td>
+                                    <td>52</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Omaha, Nebraska</td>
+                                    <td>12/5/2007</td>
+                                    <td>9</td>
+                                    <td>4</td>
+                                    <td>19</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Crandon, Wisconsin</td>
+                                    <td>10/7/2007</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>20</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Blacksburg, Virginia</td>
+                                    <td>4/16/2007</td>
+                                    <td>32</td>
+                                    <td>23</td>
+                                    <td>23</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Salt Lake City, Utah</td>
+                                    <td>2/12/2007</td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td>18</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Lancaster County, Pennsylvania</td>
+                                    <td>10/2/2006</td>
+                                    <td>6</td>
+                                    <td>5</td>
+                                    <td>32</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Seattle, Washington</td>
+                                    <td>3/25/2006</td>
+                                    <td>7</td>
+                                    <td>2</td>
+                                    <td>28</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Goleta, California</td>
+                                    <td>1/30/2006</td>
+                                    <td>8</td>
+                                    <td>0</td>
+                                    <td>44</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Red Lake, Minnesota</td>
+                                    <td>3/21/2005</td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                    <td>16</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Brookfield, Wisconsin</td>
+                                    <td>3/12/2005</td>
+                                    <td>7</td>
+                                    <td>4</td>
+                                    <td>44</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Columbus, Ohio</td>
+                                    <td>12/8/2004</td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td>25</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Meridian, Mississippi</td>
+                                    <td>7/8/2003</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>48</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Melrose Park, Illinois</td>
+                                    <td>2/5/2001</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                    <td>66</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Wakefield, Massachusetts</td>
+                                    <td>12/26/2000</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>42</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Tampa, Florida</td>
+                                    <td>12/30/1999</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>36</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Honolulu, Hawaii</td>
+                                    <td>11/2/1999</td>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>40</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fort Worth, Texas</td>
+                                    <td>9/15/1999</td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>47</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Atlanta, Georgia</td>
+                                    <td>7/29/1999</td>
+                                    <td>9</td>
+                                    <td>13</td>
+                                    <td>44</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Littleton, Colorado</td>
+                                    <td>4/20/1999</td>
+                                    <td>13</td>
+                                    <td>24</td>
+                                    <td>17</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Springfield, Oregon</td>
+                                    <td>5/21/1998</td>
+                                    <td>4</td>
+                                    <td>25</td>
+                                    <td>15</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Jonesboro, Arkansas</td>
+                                    <td>3/24/1998</td>
+                                    <td>5</td>
+                                    <td>10</td>
+                                    <td>11</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Newington, Connecticut</td>
+                                    <td>3/6/1998</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>35</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Orange, California</td>
+                                    <td>12/18/1997</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>41</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Aiken, South Carolina</td>
+                                    <td>9/15/1997</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>43</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fort Lauderdale, Florida</td>
+                                    <td>2/9/1996</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>41</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Corpus Christi, Texas</td>
+                                    <td>4/3/1995</td>
+                                    <td>6</td>
+                                    <td>0</td>
+                                    <td>28</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fairchild Air Force Base, Washington</td>
+                                    <td>6/20/1994</td>
+                                    <td>5</td>
+                                    <td>23</td>
+                                    <td>20</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Aurora, Colorado</td>
+                                    <td>12/14/1993</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>19</td>
+                                    <td>Unknown</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Garden City, New York</td>
+                                    <td>12/7/1993</td>
+                                    <td>6</td>
+                                    <td>19</td>
+                                    <td>35</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Fayetteville, North Carolina</td>
+                                    <td>8/6/1993</td>
+                                    <td>4</td>
+                                    <td>8</td>
+                                    <td>22</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>San Francisco, California</td>
+                                    <td>7/1/1993</td>
+                                    <td>9</td>
+                                    <td>6</td>
+                                    <td>55</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Watkins Glen, New York</td>
+                                    <td>10/15/1992</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>50</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Olivehurst, California</td>
+                                    <td>5/1/1992</td>
+                                    <td>4</td>
+                                    <td>10</td>
+                                    <td>20</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Royal Oak, Michigan</td>
+                                    <td>11/14/1991</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>31</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Iowa City, Iowa</td>
+                                    <td>11/1/1991</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>28</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Killeen, Texas</td>
+                                    <td>10/16/1991</td>
+                                    <td>24</td>
+                                    <td>20</td>
+                                    <td>35</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Jacksonville, Florida</td>
+                                    <td>6/18/1990</td>
+                                    <td>10</td>
+                                    <td>4</td>
+                                    <td>42</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Louisville, Kentucky</td>
+                                    <td>9/14/1989</td>
+                                    <td>9</td>
+                                    <td>12</td>
+                                    <td>47</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Stockton, California</td>
+                                    <td>1/17/1989</td>
+                                    <td>6</td>
+                                    <td>29</td>
+                                    <td>26</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Sunnyvale, California</td>
+                                    <td>2/16/1988</td>
+                                    <td>7</td>
+                                    <td>4</td>
+                                    <td>39</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Palm Bay, Florida</td>
+                                    <td>4/23/1987</td>
+                                    <td>6</td>
+                                    <td>14</td>
+                                    <td>59</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Edmond, Oklahoma</td>
+                                    <td>8/20/1986</td>
+                                    <td>15</td>
+                                    <td>6</td>
+                                    <td>44</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>San Ysidro, California</td>
+                                    <td>7/18/1984</td>
+                                    <td>22</td>
+                                    <td>19</td>
+                                    <td>41</td>
+                                    <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Dallas, Texas</td>
+                                    <td>6/29/1984</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>39</td>
+                                    <td>No</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Miami, Florida</td>
+                                    <td>8/20/1982</td>
+                                    <td>8</td>
+                                    <td>3</td>
+                                    <td>51</td>
+                                    <td>Yes</td>
+                                 </tr>
+                            </tbody>
+                            <!--    <script src="js/table.js"></script> -->
                         </table>
                     </div>
                 </div>
@@ -115,7 +1077,6 @@
         <!-- <script src="assets/demo/chart-pie-demo.js"></script> -->
 
         <!-- table -->
-        <div id="datatables"></div>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
