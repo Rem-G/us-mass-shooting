@@ -12,13 +12,13 @@ function filterByYear(data){
   return final_data;
 }
 
-function draw(data) {
+function draw_evolution(data) {
   
   let shots = filterByYear(data);
 
   let margin = {top: 30, right: 30, bottom: 50, left: 60},
   width = 460 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
+  height = 1.2*window.innerHeight/3 - margin.top - margin.bottom;
 
   let svg = d3.select("#evolution_year")
     .append("svg")
@@ -72,7 +72,7 @@ function draw(data) {
   .selectAll("stop")
     .data([
       {offset: "0%", color: "steelblue"},
-      {offset: "100%", color: "rgba(217,91,67,70)"}
+      {offset: "100%", color: "darkorange"}
     ])
   .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })
@@ -88,15 +88,6 @@ svg.append("path")
     .x(function(d) { return x(d.year) })
     .y(function(d) { return y(d.victims) })
     )
-
-  //Title
-  svg.append("text")
-    .attr("x", (width / 2))             
-    .attr("y", 0 - (margin.top / 2))
-    .attr("text-anchor", "middle")  
-    .style("font-size", "16px") 
-    .style("text-decoration", "underline")  
-    .text("Evolution of the number of victims per year");
 }
 
 function display_chart(){
@@ -106,6 +97,6 @@ function display_chart(){
     if (error) throw error;
     
     // trigger render
-    draw(data);
+    draw_evolution(data);
   });
 }

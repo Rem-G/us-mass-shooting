@@ -6,68 +6,75 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Dashboard US Mass Shootings</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="d3/map.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     </head>
     <body class="sb-nav-fixed">
         <div class="container-fluid">
-            <h1 class="mt-4">Dashboard</h1>
-            <!-- if description requiered -->
-            <!-- <div class="card mb-4">
-                <div class="card-body">
-                    Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
-                    <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
-                    .
-                </div>
-            </div> -->
+            <h3 class="mt-4">Dashboard US Mass Shootings</h3>
 
-            <!-- for charts -->
+            <div class="row">
+                    
+                <div class="col-lg-5">
+                    <div class="card mb-4">
+                        <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
+                            Evolution of the number of victims per year
+                        </div>
+                        <div class="card-body">
+                            <div id="evolution_year"></div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card mb-4">
-                <div class="card-header">
-                    Map
+                <div class="col-lg-7">
+                    <div class="card mb-4">
+                        <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
+                            US Mass Shootings map
+                        </div>
+                        <div class="card-body">
+                            <div id="d3_map"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <!-- <iframe src="./d3/d3.html" frameborder="0" style="width: 100%;height: 100px;"></iframe> -->
-                    <div id="d3_map"></div>
-                    <!-- <canvas id="mapChart" width="100%" height="30"></canvas> -->
-                </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-chart-area mr-1"></i>
-                    Area Chart Example
-                </div>
-                <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
 
             <div class="row">
                     
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar mr-1"></i>
-                            Bar Chart Example
+                        <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
+                            Evolution of the number of victims per year
                         </div>
-                        <!-- <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div> -->
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        <div class="card-body">
+                            <div id="ethnicity"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-pie mr-1"></i>
-                            Pie Chart Example
+                        <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
+                            Evolution of the number of victims per year
                         </div>
-                        <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        <div class="card-body">
+                            <div id=""></div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
+                            Evolution of the number of victims per year
+                        </div>
+                        <div class="card-body">
+                            <div id=""></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- table for data on the bottom -->
@@ -81,17 +88,17 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <!-- fill with our data -->
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                <tr id="table-content-head">
+                                    <th>Place</th>
+                                    <th>Date</th>
+                                    <th>Fatalities</th>
+                                    <th>Injured</th>
+                                    <th>Age of Shooter</th>
+                                    <th>Weapons Obtained Legally</th>
                                 </tr>
                             </thead>
                             <tfoot>
-                                <tr>
+                                <tr id="table-content-foot">
                                     <th>Name</th>
                                     <th>Position</th>
                                     <th>Office</th>
@@ -132,16 +139,27 @@
         <script src="https://d3js.org/d3.v4.min.js"></script>
 		<script src="https://d3js.org/topojson.v1.min.js"></script>
         <!-- charts -->
-        <script src="d3/d3.js" onload="display()"></script>
-		<link rel="stylesheet" href="d3/d3.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src='d3/victims_evolution.js'></script>
+        <script type="text/javascript" src='d3/ethnicity_repartition.js'></script>
+        <script type="text/javascript" src='d3/map.js'></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
 
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script>
+        <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
+        <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
+        <!-- <script src="assets/demo/chart-pie-demo.js"></script> -->
 
         <!-- table -->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
+
+        <script>
+            window.onload=function(){
+                display_map();
+                display_chart();
+                display_ethnicity();
+            }
+        </script>
     </body>
 </html>

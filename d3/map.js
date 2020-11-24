@@ -41,12 +41,10 @@ function get_state_color(state, shots){
 
 function display_map(){
 
-	console.log('Display map ok');
-
 	//Width and height of map
-	var width = 500;
-	var height = 500;
-	var scale = 750;
+	var width = window.innerWidth/2;
+	var height = 1.2*window.innerHeight/3;
+	var scale = 720;
 
 	// D3 Projection
 	var projection = d3.geoAlbersUsa()
@@ -83,7 +81,9 @@ function display_map(){
 	let legend = d3.select("#d3_map").append("svg")
       			.attr("class", "legend")
      			.attr("width", 140)
-    			.attr("height", 200)
+				.attr("height", 200)
+				.style("left", width-50)
+				.style("top", height-50)
    				.selectAll("g")
    					.data(color.domain().slice().reverse())
    				.enter()
@@ -154,13 +154,13 @@ function display_map(){
 				d3.select("#tooltip")
 					.style("visibility", "visible")//set style to it
 					.html(
-						"<h3>"+d.case+"</h3>"
-						+"<h4>"+d.date+", "+d.location+"</h4>"
+						"<h4>"+d.case+"</h4>"
+						+"<h5>"+d.date+", "+d.location+"</h5>"
 						+"<p>"+d.summary+"</p>"
 						+"<p>"+d.fatalities+" people have been killed, "+d.injured+" injured.</p>"
 					)
-					.style("left", (d3.event.pageX) + "px")
-					.style("top", (d3.event.pageY) + "px")
+					.style("left", (d3.event.pageX-width) + "px")
+					.style("top", (d3.event.pageY-height*0.7) + "px")
 			})
 	
 			.on('mouseout', function(d, i) {

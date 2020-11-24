@@ -18,15 +18,13 @@ div.tooltip {
 }
         
 /* Legend Font Style */
-body {
+#d3_map {
 	font: 11px sans-serif;
 }
         
 /* Legend Position Style */
 .legend {
 	position:absolute;
-	left:1200px;
-	top:600px;
 }
 
 #tooltip {	
