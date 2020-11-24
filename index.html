@@ -9,7 +9,6 @@
         <title>Dashboard - SB Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <div class="container-fluid">
@@ -31,7 +30,8 @@
                 </div>
                 <div class="card-body">
                     <!-- <iframe src="./d3/d3.html" frameborder="0" style="width: 100%;height: 100px;"></iframe> -->
-                    <canvas id="mapChart" width="100%" height="30"></canvas>
+                    <div id="d3_map"></div>
+                    <!-- <canvas id="mapChart" width="100%" height="30"></canvas> -->
                 </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
@@ -53,7 +53,7 @@
                             <i class="fas fa-chart-bar mr-1"></i>
                             Bar Chart Example
                         </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
+                        <!-- <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div> -->
                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                     </div>
                 </div>
@@ -124,16 +124,22 @@
                 </div>
             </div>
         </div>
+        <!-- bootstrap -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <!-- chart and d3 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <!-- start load charts -->
-        <!-- <script src="d3/map.js"></script> -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/topojson.v1.min.js"></script>
+        <!-- charts -->
+        <script src="d3/d3.js" onload="display()"></script>
+		<link rel="stylesheet" href="d3/d3.css">
+
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="assets/demo/chart-pie-demo.js"></script>
-        <!-- end load charts -->
+
+        <!-- table -->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
