@@ -1,32 +1,40 @@
-function filterByEthnicity(data){
+
+function filterByGender(data){
     values_list = [];
     labels = {};
-    ethnicities = ["White", "Black", "Asian", "Latino", "Native American"];
+    genders = ['male', 'female'];
 
-    ethnicities.forEach(eth => {
-        eth_n = 0;
+    genders.forEach(gender => {
+        gender_n = 0;
         data.forEach(shot => {
-            if (shot.race.toLowerCase() == eth.toLowerCase()){
-                eth_n += 1;
+            current_gender = shot.gender.toLowerCase();
+            if (current_gender == "m") { current_gender = "male";}
+            if (current_gender == "f") { current_gender = "female";}
+
+            if (current_gender == gender){
+              gender_n += 1;
             }
         });
 
-        labels[eth_n] = eth;
-        values_list.push(eth_n);
+        labels[gender_n] = gender;
+        values_list.push(gender_n);
     });
 
     return [labels, values_list];
 }
 
-function drawEthnicity(json){
-    let filter_json = filterByEthnicity(json);
+
+function drawGender(json){
+    let filter_json = filterByGender(json);
     let labels = filter_json[0];
     let data = filter_json[1];
+
+    console.log(labels, data);
 
     var width = 0.97*window.innerWidth/3;
     var height = 0.8*window.innerHeight/3;
 
-    var svg = d3.select("#ethnicity").append("svg")
+    var svg = d3.select("#gender").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g");
@@ -41,8 +49,8 @@ function drawEthnicity(json){
 //   var height = 400;
   var radius = Math.min(width, height)/2;
   var color = d3.scaleOrdinal()
-  .domain(["White", "Black", "Asian", "Latino", "Native American"])
-  .range(["#6B6054", "#929487", "#A1B0AB", "#C3DAC3", "#D5ECD4"]);;
+  .domain(["Male", "Female"])
+  .range(["#9E2B25", "#2A0C4E"]);;
 
 //   var color = d3.scale.ordinal()
 //   .domain(["white", "black", "asian", "latino"])
@@ -108,12 +116,12 @@ function drawEthnicity(json){
 
 }
 
-function displayEthnicity(){
+function displayGender(){
     // Get the data
     d3.json("../data/us_shots.json", function(error, data) {
       if (error) throw error;
       
       // trigger render
-      drawEthnicity(data);
+      drawGender(data);
     });
   }

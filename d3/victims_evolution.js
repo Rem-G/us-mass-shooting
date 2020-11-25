@@ -12,7 +12,7 @@ function filterByYear(data){
   return final_data;
 }
 
-function draw_evolution(data) {
+function drawVictims(data) {
   
   let shots = filterByYear(data);
 
@@ -90,13 +90,13 @@ svg.append("path")
     )
 }
 
-function display_chart(){
+function displayVictims(){
 
   // Get the data
   d3.json("../data/us_shots.json", function(error, data) {
     if (error) throw error;
     
     // trigger render
-    draw_evolution(data);
+    drawVictims(data);
   });
 }

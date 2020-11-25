@@ -1,4 +1,4 @@
-function get_state_stats(state, shots){
+function getStateStats(state, shots){
 	let fatalities = 0;
 	let injured = 0;
 	shots.forEach(shot => {
@@ -12,7 +12,7 @@ function get_state_stats(state, shots){
 	return {'fatalities': fatalities, 'injured': injured};
 }
 
-function get_state_shots(state, shots){
+function getStateShots(state, shots){
 	let shots_nb = null;
 
 	shots.forEach(shot => {
@@ -30,8 +30,8 @@ function get_state_shots(state, shots){
 let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
 color.domain([0, 1, 2, 3]);
 
-function get_state_color(state, shots){
-	let nb_shots = get_state_shots(state, shots);
+function getStateColor(state, shots){
+	let nb_shots = getStateShots(state, shots);
 
 	if(!nb_shots){return 'rgb(213,222,217)';}
 	else if (nb_shots >= 50){return color(2);}
@@ -39,7 +39,7 @@ function get_state_color(state, shots){
 	else {return color(0);}
 }
 
-function display_map(){
+function displayMap(){
 
 	//Width and height of map
 	var width = window.innerWidth/2;
@@ -112,7 +112,7 @@ function display_map(){
 	       .enter()
 	       .append("path")
 	       .attr("d", path)
-	       .style("fill", function(state){return get_state_color(state.properties.name, shots)})
+	       .style("fill", function(state){return getStateColor(state.properties.name, shots)})
 	       .attr('fill-opacity', '100%')
 	       .attr("width", width)
 		   .attr("height", height)

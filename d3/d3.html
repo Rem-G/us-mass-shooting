@@ -2,22 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="map.css">
+		<link rel="stylesheet" href="age_repartition.css">
 	</head>
 	<body>
-		<div id="d3_map"></div>
-		<div id="evolution_year"></div>
+		<div id="age"></div>
+
 	</body>
 
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script type="text/javascript" src='evolution_year_chart.js'></script>
-	<script type="text/javascript" src='map.js'></script>
+	<!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+
+	<!-- <script type="text/javascript" src='map.js'></script> -->
+	<script type="text/javascript" src='age_repartition.js'></script>
+
 	<script src="https://d3js.org/topojson.v1.min.js"></script>
 
 	<script>
 		window.onload=function(){
-			display_map();
-			display_chart();
+			// display_map();
+			// display_chart();
+			displayAge();
 		}
 	</script>
 

@@ -7,8 +7,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard US Mass Shootings</title>
+
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="d3/map.css">
+        <link rel="stylesheet" href="d3/ethnicity_repartition.css">
+        <link rel="stylesheet" href="d3/age_repartition.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="js/functions.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
@@ -47,7 +50,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
-                            Evolution of the number of victims per year
+                            Ethnicity of the agressor
                         </div>
                         <div class="card-body">
                             <div id="ethnicity"></div>
@@ -58,7 +61,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
-                            Gender of perpetrator
+                            Gender of the perpetrator
                         </div>
                         <div class="card-body">
                             <div id="gender"></div>
@@ -69,10 +72,10 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div style="background-color:rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center; vertical-align: auto; height:30px">
-                            TODO
+                            Gender of the perpetrator
                         </div>
                         <div class="card-body">
-                            <div id=""></div>
+                            <div id="age"></div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +91,6 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <!-- data -->
                             <thead>
                                 <tr id="table-content-head">
                                     <th>Place</th>
@@ -112,7 +114,6 @@
                             <tbody id="table-content-body">
                                 <tr><td>Jersey City, New Jersey<td>12/10/19<td>4<td>3<td>-<td>-<tr><td>Pensacola, Florida<td>12/6/19<td>3<td>8<td>-<td>-<tr><td>Odessa, Texas<td>8/31/19<td>7<td>25<td>36<td>-<tr><td>Dayton, Ohio<td>8/4/19<td>9<td>27<td>24<td>Yes<tr><td>El Paso, Texas<td>8/3/19<td>22<td>26<td>21<td>Yes<tr><td>Gilroy, California<td>7/28/19<td>3<td>12<td>19<td>Yes<tr><td>Virginia Beach, Virginia<td>5/31/19<td>12<td>4<td>40<td>Yes<tr><td>Aurora, Illinois<td>2/15/19<td>5<td>6<td>45<td>No<tr><td>State College, Pennsylvania<td>1/24/19<td>3<td>1<td>21<td>Yes<tr><td>Sebring, Florida<td>1/23/19<td>5<td>0<td>21<td>Yes<tr><td>Chicago, Illinois<td>11/19/18<td>3<td>0<td>32<td>-<tr><td>Thousand Oaks, California<td>11/7/18<td>12<td>22<td>28<td>Yes<tr><td>Pittsburgh, Pennsylvania<td>10/27/18<td>11<td>6<td>46<td>Yes<tr><td>Perryman, Maryland<td>9/20/18<td>3<td>3<td>26<td>Yes<tr><td>Bakersfield, California<td>9/12/18<td>5<td>0<td>54<td>Yes<tr><td>Cincinnati, Ohio<td>9/6/18<td>3<td>2<td>29<td>Yes<tr><td>Annapolis, Maryland<td>6/28/18<td>5<td>2<td>38<td>Yes<tr><td>Santa Fe, Texas<td>5/18/18<td>10<td>13<td>17<td>TBD<tr><td>Nashville, Tennessee<td>4/22/18<td>4<td>4<td>29<td>Yes<tr><td>Yountville, California<td>3/9/18<td>3<td>0<td>36<td>Yes<tr><td>Parkland, Florida<td>2/14/18<td>17<td>17<td>19<td>Yes<tr><td>Melcroft, Pennsylvania<td>1/28/18<td>4<td>1<td>28<td>TBD<tr><td>Rancho Tehama, California<td>11/14/17<td>5<td>10<td>44<td>No<tr><td>Sutherland Springs, Texas<td>11/5/17<td>26<td>20<td>26<td>Kelley passed federal criminal background checks; the US Air Force failed to provide information on his criminal history to the FBI<tr><td>Thornton, Colorado<td>11/1/17<td>3<td>0<td>47<td>TBD<tr><td>Edgewood, Maryland<td>10/18/17<td>3<td>3<td>37<td>No<tr><td>Las Vegas, Nevada<td>10/1/17<td>58<td>546<td>64<td>Yes<tr><td>San Francisco, California<td>6/14/17<td>3<td>2<td>38<td>No<tr><td>Tunkhannock, Pennsylvania<td>6/7/17<td>3<td>0<td>24<td>TBD<tr><td>Orlando, Florida<td>6/5/2017<td>5<td>0<td>45<td>TBD<tr><td>Kirkersville, Ohio<td>5/12/2017<td>3<td>0<td>43<td>TBD<tr><td>Fresno, California<td>4/18/2017<td>3<td>0<td>39<td>Unknown<tr><td>Fort Lauderdale, Florida<td>1/6/2017<td>5<td>6<td>26<td>Yes<tr><td>Burlington, Washington<td>9/23/2016<td>5<td>0<td>20<td>TBD<tr><td>Baton Rouge, Lousiana<td>7/17/2016<td>3<td>3<td>29<td>Unknown<tr><td>Dallas, Texas<td>7/7/2016<td>5<td>11<td>25<td>Yes<tr><td>Orlando, Florida<td>6/12/2016<td>49<td>53<td>29<td>Yes<tr><td>Hesston, Kansas<td>2/25/2016<td>3<td>14<td>38<td>Yes<tr><td>Kalamazoo County, Michigan<td>2/20/2016<td>6<td>2<td>45<td>Yes<tr><td>San Bernardino, California<td>12/2/2015<td>14<td>21<td>28<td>Yes<tr><td>Colorado Springs, Colorado<td>11/27/2015<td>3<td>9<td>57<td>Unknown<tr><td>Colorado Springs, Colorado<td>10/31/2015<td>3<td>0<td>33<td>Yes<tr><td>Roseburg, Oregon<td>10/1/2015<td>9<td>9<td>26<td>Yes<tr><td>Chattanooga, Tennessee<td>7/16/2015<td>5<td>2<td>24<td>Yes ("some of the weapons were purchased legally and some of them may not have been")<tr><td>Charleston, South Carolina<td>6/17/2015<td>9<td>1<td>21<td>Yes<tr><td>Menasha, Wisconsin<td>6/11/2015<td>3<td>1<td>27<td>Yes<tr><td>Marysville, Washington<td>10/24/2014<td>5<td>1<td>15<td>No<tr><td>Santa Barbara, California<td>5/23/2014<td>6<td>13<td>22<td>Yes<tr><td>Fort Hood, Texas<td>4/3/2014<td>3<td>12<td>34<td>Yes<tr><td>Alturas, California<td>2/20/2014<td>4<td>2<td>44<td>Unknown<tr><td>Washington, D.C.<td>9/16/2013<td>12<td>8<td>34<td>Yes<tr><td>Hialeah, Florida<td>7/26/2013<td>7<td>0<td>42<td>Yes<tr><td>Santa Monica, California<td>6/7/2013<td>6<td>3<td>23<td>Yes<tr><td>Federal Way, Washington<td>4/21/2013<td>5<td>0<td>27<td>Yes<tr><td>Herkimer County, New York<td>3/13/2013<td>5<td>2<td>64<td>Yes<tr><td>Newtown, Connecticut<td>12/14/2012<td>27<td>2<td>20<td>No<tr><td>Minneapolis, Minnesota<td>9/27/2012<td>7<td>1<td>36<td>Yes<tr><td>Oak Creek, Wisconsin<td>8/5/2012<td>7<td>3<td>40<td>Yes<tr><td>Aurora, Colorado<td>7/20/2012<td>12<td>70<td>24<td>Yes<tr><td>Seattle, Washington<td>5/20/2012<td>6<td>1<td>40<td>Yes<tr><td>Oakland, California<td>4/2/2012<td>7<td>3<td>43<td>Yes<tr><td>Norcross, Georgia<td>2/21/2012<td>5<td>0<td>59<td>Yes<tr><td>Seal Beach, California<td>10/12/2011<td>8<td>1<td>42<td>Yes<tr><td>Carson City, Nevada<td>9/6/2011<td>5<td>7<td>32<td>Yes<tr><td>Tucson, Arizona<td>1/8/2011<td>6<td>13<td>22<td>Yes<tr><td>Manchester, Connecticut<td>8/3/2010<td>9<td>2<td>34<td>Yes<tr><td>Parkland, Washington<td>11/29/2009<td>4<td>1<td>37<td>No<tr><td>Fort Hood, Texas<td>11/5/2009<td>13<td>31<td>39<td>Yes<tr><td>Binghamton, New York<td>4/3/2009<td>14<td>4<td>41<td>Yes<tr><td>Carthage, North Carolina<td>3/29/2009<td>8<td>3<td>45<td>Yes<tr><td>Henderson, Kentucky<td>6/25/2008<td>6<td>1<td>25<td>Yes<tr><td>DeKalb, Illinois<td>2/14/2008<td>5<td>21<td>27<td>Yes<tr><td>Kirkwood, Missouri<td>2/7/2008<td>6<td>2<td>52<td>No<tr><td>Omaha, Nebraska<td>12/5/2007<td>9<td>4<td>19<td>No<tr><td>Crandon, Wisconsin<td>10/7/2007<td>6<td>1<td>20<td>Yes<tr><td>Blacksburg, Virginia<td>4/16/2007<td>32<td>23<td>23<td>Yes<tr><td>Salt Lake City, Utah<td>2/12/2007<td>6<td>4<td>18<td>Unknown<tr><td>Lancaster County, Pennsylvania<td>10/2/2006<td>6<td>5<td>32<td>Yes<tr><td>Seattle, Washington<td>3/25/2006<td>7<td>2<td>28<td>Yes<tr><td>Goleta, California<td>1/30/2006<td>8<td>0<td>44<td>Yes<tr><td>Red Lake, Minnesota<td>3/21/2005<td>10<td>5<td>16<td>No<tr><td>Brookfield, Wisconsin<td>3/12/2005<td>7<td>4<td>44<td>Yes<tr><td>Columbus, Ohio<td>12/8/2004<td>5<td>7<td>25<td>Yes<tr><td>Meridian, Mississippi<td>7/8/2003<td>7<td>8<td>48<td>Yes<tr><td>Melrose Park, Illinois<td>2/5/2001<td>5<td>4<td>66<td>Yes<tr><td>Wakefield, Massachusetts<td>12/26/2000<td>7<td>0<td>42<td>Yes<tr><td>Tampa, Florida<td>12/30/1999<td>5<td>3<td>36<td>Yes<tr><td>Honolulu, Hawaii<td>11/2/1999<td>7<td>0<td>40<td>Yes<tr><td>Fort Worth, Texas<td>9/15/1999<td>8<td>7<td>47<td>Yes<tr><td>Atlanta, Georgia<td>7/29/1999<td>9<td>13<td>44<td>Yes<tr><td>Littleton, Colorado<td>4/20/1999<td>13<td>24<td>17<td>No<tr><td>Springfield, Oregon<td>5/21/1998<td>4<td>25<td>15<td>No<tr><td>Jonesboro, Arkansas<td>3/24/1998<td>5<td>10<td>11<td>No<tr><td>Newington, Connecticut<td>3/6/1998<td>5<td>1<td>35<td>Yes<tr><td>Orange, California<td>12/18/1997<td>5<td>2<td>41<td>Yes<tr><td>Aiken, South Carolina<td>9/15/1997<td>4<td>3<td>43<td>No<tr><td>Fort Lauderdale, Florida<td>2/9/1996<td>6<td>1<td>41<td>Yes<tr><td>Corpus Christi, Texas<td>4/3/1995<td>6<td>0<td>28<td>Yes<tr><td>Fairchild Air Force Base, Washington<td>6/20/1994<td>5<td>23<td>20<td>Yes<tr><td>Aurora, Colorado<td>12/14/1993<td>4<td>1<td>19<td>Unknown<tr><td>Garden City, New York<td>12/7/1993<td>6<td>19<td>35<td>Yes<tr><td>Fayetteville, North Carolina<td>8/6/1993<td>4<td>8<td>22<td>Yes<tr><td>San Francisco, California<td>7/1/1993<td>9<td>6<td>55<td>No<tr><td>Watkins Glen, New York<td>10/15/1992<td>5<td>0<td>50<td>Yes<tr><td>Olivehurst, California<td>5/1/1992<td>4<td>10<td>20<td>Yes<tr><td>Royal Oak, Michigan<td>11/14/1991<td>5<td>5<td>31<td>Yes<tr><td>Iowa City, Iowa<td>11/1/1991<td>6<td>1<td>28<td>Yes<tr><td>Killeen, Texas<td>10/16/1991<td>24<td>20<td>35<td>Yes<tr><td>Jacksonville, Florida<td>6/18/1990<td>10<td>4<td>42<td>Yes<tr><td>Louisville, Kentucky<td>9/14/1989<td>9<td>12<td>47<td>Yes<tr><td>Stockton, California<td>1/17/1989<td>6<td>29<td>26<td>Yes<tr><td>Sunnyvale, California<td>2/16/1988<td>7<td>4<td>39<td>Yes<tr><td>Palm Bay, Florida<td>4/23/1987<td>6<td>14<td>59<td>Yes<tr><td>Edmond, Oklahoma<td>8/20/1986<td>15<td>6<td>44<td>Yes<tr><td>San Ysidro, California<td>7/18/1984<td>22<td>19<td>41<td>Yes<tr><td>Dallas, Texas<td>6/29/1984<td>6<td>1<td>39<td>No<tr><td>Miami, Florida<td>8/20/1982<td>8<td>3<td>51<td>Yes
                             </tbody>
-                            <!-- <script src="js/table.js"></script> -->
                         </table>
                     </div>
                 </div>
@@ -131,7 +132,10 @@
         <script type="text/javascript" src='d3/victims_evolution.js'></script>
         <script type="text/javascript" src='d3/ethnicity_repartition.js'></script>
         <script type="text/javascript" src='d3/map.js'></script>
-        <script type="text/javascript" src='d3/donnut.js'></script>
+        <script type="text/javascript" src='d3/gender_repartition.js'></script>
+        <script type="text/javascript" src='d3/age_repartition.js'></script>
+
+        <!-- <script type="text/javascript" src='d3/donnut.js'></script> -->
         <script src="https://d3js.org/topojson.v1.min.js"></script>
 
         <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
@@ -145,9 +149,11 @@
 
         <script>
             window.onload=function(){
-                display_map();
-                display_chart();
-                display_ethnicity();
+                displayMap();
+                displayVictims();
+                displayEthnicity();
+                displayGender();
+                displayAge();
             }
         </script>
     </body>
