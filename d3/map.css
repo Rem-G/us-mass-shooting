@@ -34,9 +34,9 @@ div.tooltip {
     text-align: center;				
     padding: 2px;				
     font: 14px sans-serif;		
-    background: rgba(226, 226, 226, 0.95);	
+	background: rgba(226, 226, 226, 0.75);	
     border: 0px;		
     border-radius: 8px;			
 	pointer-events: none;
-	opacity: 70%;
+	/* opacity: 70%; */
 }

@@ -1,16 +1,16 @@
 function filterByAge(shots){
     final_json = [];
 
-    for (let i=10; i<=100; i += 10){
+    for (let i=10; i<=70; i += 5){
         age_n = 0;
         shots.forEach(shot => {
             current_age = parseInt(shot.age_of_shooter);
-            if (current_age >= i && current_age <= i+10){
+            if (current_age >= i && current_age <= i+5){
                 age_n += 1;
             }
         });
 
-        if (age_n >= 5) {final_json.push({'age': i, 'number': age_n});};
+        if (age_n >= 0) {final_json.push({'age': i, 'number': age_n});};
     }
 
     return final_json;
@@ -58,12 +58,28 @@ function drawAge(json){
 
     // add the x Axis
     svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(-8," + height + ")")
         .call(d3.axisBottom(x));
 
     // add the y Axis
     svg.append("g")
         .call(d3.axisLeft(y));
+
+    svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", -25)
+        .attr("x", -10)
+        //.attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Number of persons");
+    
+    svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width/2)
+        .attr("y", height + 25)
+        .text("Age");
 
 }
 

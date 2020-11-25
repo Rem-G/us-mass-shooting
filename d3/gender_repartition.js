@@ -50,7 +50,7 @@ function drawGender(json){
   var radius = Math.min(width, height)/2;
   var color = d3.scaleOrdinal()
   .domain(["Male", "Female"])
-  .range(["#9E2B25", "#2A0C4E"]);;
+  .range(["#D88373", "#F5E2C8"]);;
 
 //   var color = d3.scale.ordinal()
 //   .domain(["white", "black", "asian", "latino"])

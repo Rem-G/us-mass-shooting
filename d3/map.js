@@ -118,22 +118,7 @@ function displayMap(){
 		   .attr("height", height)
 		   .attr("state", function(state){return state.properties.name;})
 		   .style("stroke", "#fff")
-		   .style("stroke-width", "1")
-
-		//    .on('mouseover', function(d) {
-		// 	   console.log(d);
-		//    d3.select("#tooltip")
-		// 	   .style("visibility", "visible")//set style to it
-		// 	   .html(function(){
-		// 		   const stats = get_state_stats(d.location.split(', ')[1], shots);
-		// 		   console.log(stats);
-		// 		   return "<h3>"+d.location.split(', ')[1]+"</h3>"
-		// 				   +"<p>"+stats.fatalities+" have been killed, "+stats.injured+" injured.</p>";
-		// 	   })
-		// 	   .style("left", (d3.event.pageX) + "px")
-		// 	   .style("top", (d3.event.pageY) + "px")
-		// 	})
-			;
+		   .style("stroke-width", "1");
 
 			//Shots dots
 			svg.selectAll('circle')
