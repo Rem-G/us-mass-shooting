@@ -41,9 +41,9 @@ function drawGender(json){
       .html(
         "<br/>"
         +"<h5>"+labels[0]+"</h4>"
-        +"<h4 style='font-weight: bold; color:#717C89'>"+data[0]+" aggressors</h4>"
+        +"<h4 style='font-weight: bold; color:#90712C'>"+data[0]+" aggressors</h4>"
         +"<br/><br/><h5>"+labels[1]+"</h5>"
-        +"<h4 style='font-weight: bold; color:#717C89'>"+data[1]+" aggressors</h44>"
+        +"<h4 style='font-weight: bold; color:#90712C'>"+data[1]+" aggressors</h44>"
         +"<br/>"
     )
 

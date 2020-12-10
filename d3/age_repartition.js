@@ -46,7 +46,7 @@ function drawAge(json){
     x.domain(data.map(function(d) { return d.age; }));
     y.domain([0, d3.max(data, function(d) { return d.number; })]);
 
-        let color = d3.scaleLinear().range(["#90BAAD", "#8AA2A9", "#717C89"]);
+        let color = d3.scaleLinear().range(["#D5A021", "#B38927", "#90712C"]);
         color.domain([0, 1, 2]);
 
         function getAgeColor(shots){
