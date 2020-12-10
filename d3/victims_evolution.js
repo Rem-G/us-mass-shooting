@@ -75,8 +75,8 @@ function drawVictims(data) {
   .attr("y2", y(max))
   .selectAll("stop")
     .data([
-      {offset: "0%", color: "#89afcf"},
-      {offset: "100%", color: "steelblue"}
+      {offset: "0%", color: "#D8BFAA"},
+      {offset: "100%", color: "#808080"}
     ])
   .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })

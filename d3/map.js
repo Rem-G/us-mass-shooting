@@ -26,14 +26,14 @@ function getStateShots(state, shots){
 	});
 	return shots_nb;
 }
-
-let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
+let color = d3.scaleLinear().range(["rgb(213,222,217)", "#D8BFAA", "#808080", "rgba(217,91,67,70)"]);
+//let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
 color.domain([0, 1, 2, 3]);
 
 function getStateColor(state, shots){
 	let nb_shots = getStateShots(state, shots);
 
-	if(!nb_shots){return 'rgb(213,222,217)';}
+	if(!nb_shots){return '#EBF5EE';}
 	else if (nb_shots >= 50){return color(2);}
 	else if (nb_shots >= 20){return color(1);}
 	else {return color(0);}
