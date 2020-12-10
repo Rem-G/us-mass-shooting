@@ -1,0 +1,11 @@
+div #gender_card {	
+    word-wrap: break-word;
+    text-align: center;		
+    padding: 2px;				
+    font: 14px sans-serif;		
+	background: rgba(226, 226, 226, 0.1);	
+    border: 1px;		
+    border-radius: 8px;
+    border-style: solid;	
+	/* opacity: 70%; */
+}

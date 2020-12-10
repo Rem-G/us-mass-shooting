@@ -72,7 +72,7 @@ function drawAge(json){
         .attr("x", -10)
         //.attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
-        .text("Number of persons");
+        .text("Number of people");
     
     svg.append("text")
         .attr("class", "x label")

@@ -127,7 +127,7 @@ function displayMap(){
 			.append('circle')
 			.attr('fill', 'rgb(217,91,67)')
 			.attr('fill-opacity', '70%')
-			.attr('r', function(d){return (Math.sqrt(d.total_victims)*4*(scale/1000)).toString()+'px';})
+			.attr('r', function(d){return (Math.sqrt(d.total_victims)*3*(scale/1000)).toString()+'px';})
 			.attr("transform", function(d) {
 				return "translate(" + projection([d.longitude, d.latitude]) + ")";
 			})
