@@ -40,10 +40,10 @@ function drawGender(json){
       .attr("height", height)
       .html(
         "<br/>"
-        +"<h4>"+labels[0]+"</h4>"
-        +"<h5 style='font-weight: bold; color:rgba(217,91,67,70)'>"+data[0]+" victims</h5>"
-        +"<br/><br/><h4>"+labels[1]+"</h4>"
-        +"<h5 style='font-weight: bold; color:rgba(217,91,67,70)'>"+data[1]+" victims</h5>"
+        +"<h5>"+labels[0]+"</h4>"
+        +"<h4 style='font-weight: bold; color:#717C89'>"+data[0]+" aggressors</h4>"
+        +"<br/><br/><h5>"+labels[1]+"</h5>"
+        +"<h4 style='font-weight: bold; color:#717C89'>"+data[1]+" aggressors</h44>"
         +"<br/>"
     )
 
