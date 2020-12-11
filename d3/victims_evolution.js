@@ -1,13 +1,17 @@
 function filterByYear(data){
   final_data = [];
-  for (let i=1982; i<=2020; i++){
-    victims = 0
+  let shots_year;
+  let victims;
+  for (let i=1982; i<=2019; i++){
+    victims = 0;
+    shots_year = 0;
     data.forEach(shot => {
       if (shot.year === i){
-        victims += shot.total_victims;
+        victims += shot.fatalities;
+        shots_year += 1;
       }
     });
-    final_data.push({'year': d3.timeParse("%Y")(i), 'victims': victims});
+    final_data.push({'year': d3.timeParse("%Y")(i), 'victims': victims, 'shots': shots_year});
   }
   return final_data;
 }
@@ -57,7 +61,7 @@ function drawVictims(data) {
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Victims");  
+      .text("Fatalities");  
 
 
   const max = d3.max(shots, function(d) { return +d.victims; })
@@ -71,8 +75,8 @@ function drawVictims(data) {
   .attr("y2", y(max))
   .selectAll("stop")
     .data([
-      {offset: "0%", color: "#89afcf"},
-      {offset: "100%", color: "steelblue"}
+      {offset: "0%", color: "#D8BFAA"},
+      {offset: "100%", color: "#808080"}
     ])
   .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })
@@ -87,6 +91,16 @@ svg.append("path")
   .attr("d", d3.line()
     .x(function(d) { return x(d.year) })
     .y(function(d) { return y(d.victims) })
+    )
+
+svg.append("path")
+  .datum(shots)
+  .attr("fill", "none")
+  .attr("stroke", "rgba(217,91,67,70)" )
+  .attr("stroke-width", 2)
+  .attr("d", d3.line()
+    .x(function(d) { return x(d.year) })
+    .y(function(d) { return y(d.shots) })
     )
 }
 

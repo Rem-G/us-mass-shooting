@@ -46,11 +46,20 @@ function drawAge(json){
     x.domain(data.map(function(d) { return d.age; }));
     y.domain([0, d3.max(data, function(d) { return d.number; })]);
 
+        let color = d3.scaleLinear().range(["rgba(100, 128, 141, 0.4)", "rgba(100, 128, 141, 0.6)", "rgba(100, 128, 141, 0.9)"]);
+        color.domain([0, 1, 2]);
+
+        function getAgeColor(shots){
+            if (shots >= 20){return color(2);}
+            else if (shots >= 10){return color(1);}
+            else {return color(0);}
+        }
+
     // append the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
-        .attr("class", "bar")
+        .attr("fill", function(d, i) {return getAgeColor(d.number);} )
         .attr("x", function(d) { return x(d.age); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.number); })
@@ -72,7 +81,7 @@ function drawAge(json){
         .attr("x", -10)
         //.attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
-        .text("Number of persons");
+        .text("Number of aggressors");
     
     svg.append("text")
         .attr("class", "x label")

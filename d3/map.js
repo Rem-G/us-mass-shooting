@@ -26,14 +26,14 @@ function getStateShots(state, shots){
 	});
 	return shots_nb;
 }
-
-let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
+let color = d3.scaleLinear().range(["rgb(213,222,217)", "#D8BFAA", "#808080", "rgba(217,91,67,70)"]);
+//let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
 color.domain([0, 1, 2, 3]);
 
 function getStateColor(state, shots){
 	let nb_shots = getStateShots(state, shots);
 
-	if(!nb_shots){return 'rgb(213,222,217)';}
+	if(!nb_shots){return '#EBF5EE';}
 	else if (nb_shots >= 50){return color(2);}
 	else if (nb_shots >= 20){return color(1);}
 	else {return color(0);}
@@ -127,7 +127,7 @@ function displayMap(){
 			.append('circle')
 			.attr('fill', 'rgb(217,91,67)')
 			.attr('fill-opacity', '70%')
-			.attr('r', function(d){return (Math.sqrt(d.total_victims)*4*(scale/1000)).toString()+'px';})
+			.attr('r', function(d){return (Math.sqrt(d.total_victims)*3*(scale/1000)).toString()+'px';})
 			.attr("transform", function(d) {
 				return "translate(" + projection([d.longitude, d.latitude]) + ")";
 			})
