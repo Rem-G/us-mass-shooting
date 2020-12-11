@@ -76,7 +76,7 @@ function displayMap(){
 	    .style("visibility", "hidden");
 		
 
-	const legendText = ["< 20 victims", "> 20 victims", "> 50 victims", "shootings"];
+	const legendText = ["< 20 victims", "> 20 victims", "> 50 victims", "Shootings"];
 
 	let legend = d3.select("#d3_map").append("svg")
       			.attr("class", "legend")

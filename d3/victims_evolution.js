@@ -31,6 +31,39 @@ function drawVictims(data) {
     .append("g")
       .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+
+  let color = d3.scaleLinear().range(["#D8BFAA", "rgba(217,91,67,70)"]);
+  //let color = d3.scaleLinear().range(["#bbd1e3", "#89afcf", "steelblue", "rgba(217,91,67,70)"]);
+  color.domain([0, 1]);
+
+  const legendText = ["Fatalities", "Shootings"];
+
+  let legend = d3.select("#evolution_year").append("svg")
+                .attr("class", "legend")
+                .attr("width", 140)
+                .attr("height", 200)
+                .style("left", width+100)
+                .style("top", height)
+                .style("position", 'absolute')
+                .selectAll("g")
+                .data(color.domain().slice().reverse())
+                .enter()
+                .append("g")
+                .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+    .attr("width", 18)
+    .attr("height", 18)
+    .style("fill", color)
+
+  legend.append("text")
+    .style("font-color", "black")
+    .style("font-size", '11px')
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .text(function(d){return legendText[d];});
+
   
   let x = d3.scaleTime()
   .domain(d3.extent(shots, function(d) {return d.year; }))
